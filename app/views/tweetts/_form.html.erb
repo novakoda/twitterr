@@ -1,0 +1,22 @@
+<%= form_with(model: tweett, local: true) do |form| %>
+  <% if tweett.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(tweett.errors.count, "error") %> prohibited this tweett from being saved:</h2>
+
+      <ul>
+      <% tweett.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :tweett %>
+    <%= form.text_area :tweett %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
