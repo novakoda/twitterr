@@ -5,6 +5,7 @@ class TweettsController < ApplicationController
   # GET /tweetts.json
   def index
     @tweetts = Tweett.all
+    @tweett = Tweett.new
   end
 
   # GET /tweetts/1
