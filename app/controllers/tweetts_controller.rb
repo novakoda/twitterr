@@ -1,5 +1,6 @@
 class TweettsController < ApplicationController
   before_action :set_tweett, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index, :show]
 
   # GET /tweetts
   # GET /tweetts.json
@@ -15,7 +16,7 @@ class TweettsController < ApplicationController
 
   # GET /tweetts/new
   def new
-    @tweett = Tweett.new
+    @tweett = current_user.tweetts.build
   end
 
   # GET /tweetts/1/edit
@@ -25,7 +26,7 @@ class TweettsController < ApplicationController
   # POST /tweetts
   # POST /tweetts.json
   def create
-    @tweett = Tweett.new(tweett_params)
+    @tweett = current_user.tweetts.build(tweett_params)
 
     respond_to do |format|
       if @tweett.save
