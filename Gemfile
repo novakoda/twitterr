@@ -42,16 +42,15 @@ gem 'simple_form', '~> 5.0', '>= 5.0.2'
 gem 'gravatar_image_tag', '~> 1.2'
 gem 'devise', '~> 4.7', '>= 4.7.1'
 
-group :production do
-  gem 'pg'
-end
+
+gem 'pg'
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 
-  # Use sqlite3 as the database for Active Record
-  gem 'sqlite3'
+
 end
 
 group :development do
